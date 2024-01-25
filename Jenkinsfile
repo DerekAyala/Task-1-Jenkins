@@ -56,6 +56,14 @@ pipeline {
             }
         }
 */
+        stage('Build') {
+            steps {
+                dir('Sums') {
+                    echo "Creating the WAR file..."
+                    bat 'mvn package -DskipTests'
+                }
+            }
+        }
         stage('Deploy') {
             steps {
                 echo 'Deploying to Tomcat'
