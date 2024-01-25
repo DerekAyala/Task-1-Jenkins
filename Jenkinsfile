@@ -16,7 +16,7 @@ pipeline {
             steps {
                 echo 'Starting Compile Stage'
                 dir('Sums') {
-                    sh 'mvn clean compile'
+                    bat 'mvn clean compile'  // Use bat instead of sh
                 }
                 echo 'Compile Stage completed'
             }
@@ -25,12 +25,11 @@ pipeline {
             steps {
                 echo 'Starting Test Stage'
                 dir('Sums') {
-                    sh 'mvn test'
+                    bat 'mvn test'  // Use bat instead of sh
                 }
                 echo 'Test Stage completed'
             }
         }
-        //you can add more stages like deployment, SonarQube scan etc.
     }
     post {
         always {
