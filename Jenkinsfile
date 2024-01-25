@@ -4,6 +4,9 @@ pipeline {
         maven 'Maven-3.9.6' 
         jdk 'jdk17' 
     }
+    triggers {
+        pollSCM('H/15 * * * *')  // Polls every 15 minutes
+    }
     stages {
         stage('Checkout') {
             steps {
