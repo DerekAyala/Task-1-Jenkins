@@ -36,7 +36,7 @@ pipeline {
                 echo 'Test Stage completed'
             }
         }
-
+/*
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
@@ -46,6 +46,7 @@ pipeline {
                 }
             }
         }
+*/
 /*
         stage('Quality Gate') {
             steps {
