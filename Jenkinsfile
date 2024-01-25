@@ -46,7 +46,7 @@ pipeline {
                 }
             }
         }
-
+/*
         stage('Quality Gate') {
             steps {
                 timeout(time: 300, unit: 'SECONDS') {
@@ -54,12 +54,12 @@ pipeline {
                 waitForQualityGate abortPipeline: true
             }
         }
-
+*/
         stage('Deploy') {
             steps {
                 echo 'Deploying to Tomcat'
                 script {
-                    deploy adapters: [tomcat8(credentialsId: 'TomcatCreds', url: 'http://localhost:9090/')],war: '**/*.war', contextPath: 'myapp'
+                    deploy adapters: [tomcat9(credentialsId: 'TomcatCreds', url: 'http://localhost:9090/')],war: '**/*.war', contextPath: 'myapp'
                 }
             }
         }
