@@ -60,8 +60,7 @@ pipeline {
             steps {
                 echo 'Deploying to Tomcat'
                 script {
-                    deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://localhost:9090/')], contextPath : 'Sums'
-
+                    deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://localhost:9090/')], contextPath : 'Sums', war : '**/*.war'
                 }
             }
         }
