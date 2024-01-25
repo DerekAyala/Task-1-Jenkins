@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Simple Calculator</title>
+</head>
+<body>
+<h1>Enter Two Numbers</h1>
+<form action="/" th:object="${calculation}" method="post">
+    <input type="number" th:field="*{num1}" required>
+    <input type="number" th:field="*{num2}" required>
+    <button type="submit">Calculate Sum</button>
+</form>
+
+<h2>All Calculations:</h2>
+<ul th:each="calculation : ${allCalculations}">
+    <li th:text="${calculation.num1 + ' + ' + calculation.num2 + ' = ' + calculation.sum}"></li>
+</ul>
+</body>
+</html>
