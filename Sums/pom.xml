@@ -16,6 +16,7 @@
 	<packaging>war</packaging> <!-- Added this line -->
 	<properties>
 		<java.version>17</java.version>
+		<sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
 	</properties>
 	<dependencies>
 		<dependency>
