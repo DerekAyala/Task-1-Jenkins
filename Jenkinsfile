@@ -5,7 +5,7 @@ pipeline {
         jdk 'jdk17' 
     }
     triggers { 
-        pollSCM('H/15 * * * *')  // Polls every 15 minutes
+        pollSCM('H */15 * * * *')  // Polls every 15 minutes
     }
 
     stages {
