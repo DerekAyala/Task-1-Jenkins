@@ -36,17 +36,17 @@ pipeline {
                 echo 'Test Stage completed'
             }
         }
-/*
+
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
                     dir('Sums') {
-                        bat 'mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar'
+                        bat 'mvn clean verify jacoco:report sonar:sonar -X'
                     }
                 }
             }
         }
-*/
+
 /*
         stage('Quality Gate') {
             steps {
@@ -56,6 +56,14 @@ pipeline {
             }
         }
 */
+        stage('Build') {
+            steps {
+                dir('Sums') {
+                    echo "Creating the WAR file..."
+                    bat 'mvn package -DskipTests'
+                }
+            }
+        }
         stage('Deploy') {
             steps {
                 echo 'Deploying to Tomcat'
