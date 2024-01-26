@@ -41,7 +41,7 @@ pipeline {
             steps {
                 withSonarQubeEnv('SonarQube') {
                     dir('Sums') {
-                        bat 'mvn clean verify org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar'
+                        bat 'mvn clean verify org.jacoco:jacoco-maven-plugin:report install sonar:sonar'
                     }
                 }
             }
