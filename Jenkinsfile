@@ -41,7 +41,7 @@ pipeline {
             steps {
                 withSonarQubeEnv('SonarQube') {
                     dir('Sums') {
-                        bat 'mvn clean verify jacoco:report sonar:sonar'
+                        bat 'mvn clean verify jacoco:report sonar:sonar -X'
                     }
                 }
             }
